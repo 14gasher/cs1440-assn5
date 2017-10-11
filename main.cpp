@@ -1,4 +1,6 @@
 #include <iostream>
+// REMOVE THIS!!!
+#include <iomanip>
 
 #include "List.hpp"
 #include "ListStats.hpp"
@@ -15,8 +17,10 @@ int main(void) {
 	// print_every_empl(list);
 	std::cout << "LIST LENGTH AFTER: " << list_length(list) << std::endl;
 
-	std::cout << "min_annual_wages: "<< min_annual_wages(list) << std::endl;
-	std::cout << "total_annual_wages: " << total_annual_wages(list) << std::endl;
+	std::cout << std::setw(20) << "min_annual_wages: "<< min_annual_wages(list) << std::endl;
+	std::cout << std::setw(20) << "total_annual_wages: " << total_annual_wages(list) << std::endl;
+	std::cout << std::setw(20) << "max_annual_wages: " << max_annual_wages(list) << std::endl;
+	std::cout << std::setw(20) << "stdev_annual_wages: " << stdev_annual_wages(list) << std::endl;
 	// Append them into one list
 
 	// Compute the statistics
