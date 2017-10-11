@@ -9,8 +9,11 @@
 int main(void) {
 	// Read in all employment lists
 	auto list = build_empl_list("data/01.txt");
+	std::cout << "LIST LENGTH BEFORE: " << list_length(list) << std::endl;
+	auto list2 = build_empl_list("data/02.txt");
+	append_lists(list, list2);
 	print_every_empl(list);
-	std::cout << "LIST LENGTH: " << list_length(list) << std::endl;
+	std::cout << "LIST LENGTH AFTER: " << list_length(list) << std::endl;
 
 	// Append them into one list
 

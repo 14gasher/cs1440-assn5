@@ -56,5 +56,11 @@ int list_length(Employment *emp) {
 
 // TODO: implement this function
 void append_lists(Employment* head, Employment* tail) {
+    auto cool = head;
+    while(cool->next != nullptr){
+        cool = cool->next;
+    }
+    cool->next = tail;
+    tail = nullptr;
 }
 
