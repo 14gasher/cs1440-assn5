@@ -1,15 +1,35 @@
 #include "ListStats.hpp"
+#include "List.hpp"
 
-/* TODO: implement this function
+// TODO: implement this function - clear
 unsigned long total_annual_wages(Employment *emp) {
+    auto l = list_length(emp);
+    auto c = emp;
+    unsigned wages = 0;
+    for(int i = 0; i < l; i++){
+        wages += c->total_annual_wages;
+        c = c->next;
+    }
+    return wages;
 }
-*/
 
 
-/* TODO: implement this function
+
+// TODO: implement this function - clear
 unsigned long min_annual_wages(Employment *emp) {
+    auto l = list_length(emp);
+    auto c = emp;
+    unsigned wages = c->total_annual_wages;
+    for(int i = 0; i < l; i++){
+        if(c->total_annual_wages < wages){
+            wages = c->total_annual_wages;
+        }
+        
+        c = c->next;
+    }
+    return wages;
 }
-*/
+
 
 
 /* TODO: implement this function
