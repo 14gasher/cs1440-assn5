@@ -11,29 +11,31 @@
 int main(void) {
 	// Read in all employment lists
 	auto list = build_empl_list("data/01.txt");
-	std::cout << "LIST LENGTH BEFORE: " << list_length(list) << std::endl;
-	auto list2 = build_empl_list("data/02.txt");
-	append_lists(list, list2);
-	// print_every_empl(list);
-	std::cout << "LIST LENGTH AFTER: " << list_length(list) << std::endl;
+	for(int i = 2; i < 79; i++){
+		std::string toAdd = "";
+		if(i < 10){
+			toAdd = "0" + std::to_string(i);
+		} else {
+			toAdd = std::to_string(i);
+		}
+		auto temp = build_empl_list("data/" + toAdd + ".txt");
+		
+		// Append them into one list
+		append_lists(list, temp);
+	}
 
-	std::cout << std::setw(20) << "min_annual_wages: "<< min_annual_wages(list) << std::endl;
-	std::cout << std::setw(20) << "total_annual_wages: " << total_annual_wages(list) << std::endl;
-	std::cout << std::setw(20) << "max_annual_wages: " << max_annual_wages(list) << std::endl;
-	std::cout << std::setw(20) << "stdev_annual_wages: " << stdev_annual_wages(list) << std::endl;
-	// Append them into one list
 
 	// Compute the statistics
 
 	// Fill out the report
 	Report rpt;
 
-	rpt.num_areas      = 1;
+	rpt.num_areas      = list_length(list);
 
-	rpt.gross_wages    = 2;
-	rpt.min_wages      = 3;
-	rpt.max_wages      = 4;
-	rpt.stdev_wages    = 5;
+	rpt.gross_wages    = total_annual_wages(list);
+	rpt.min_wages      = min_annual_wages(list);
+	rpt.max_wages      = max_annual_wages(list);
+	rpt.stdev_wages    = stdev_annual_wages(list);
 	rpt.unique_wages   = 6;
 	rpt.distinct_wages = 7;
 
