@@ -26,6 +26,41 @@ int main(void) {
 
 
 	// Compute the statistics
+	
+	unsigned long
+	gross_emplvl = 0,
+	max_emplvl = list->annual_avg_emplvl,
+	min_emplvl = list->annual_avg_emplvl,
+	gross_estabs = 0,
+	max_estabs = list->annual_avg_estabs,
+	min_estabs = list->annual_avg_estabs;
+	
+	auto current = list;
+	auto length = list_length(list);
+	for(int i = 0; i < length; i++){
+		// Emplvl
+		auto e = current->annual_avg_emplvl;
+		gross_emplvl += e;
+		if(e > max_emplvl){
+			max_emplvl = e;
+		} else if(e < min_emplvl) {
+			min_emplvl = e;
+		}
+		
+		// estabs
+		e = current->annual_avg_estabs;
+		gross_estabs += e;
+		if(e > max_estabs){
+			max_estabs = e;
+		} else if (e < min_estabs){
+			min_estabs = e;
+		}
+		
+		// Get next 
+		current = current->next;
+		
+	}
+					
 
 	// Fill out the report
 	Report rpt;
@@ -39,13 +74,13 @@ int main(void) {
 	rpt.unique_wages   = 6;
 	rpt.distinct_wages = 7;
 
-	rpt.gross_emplvl   = 8;
-	rpt.max_emplvl     = 9;
-	rpt.min_emplvl     = 10;
+	rpt.gross_emplvl   = gross_emplvl;
+	rpt.max_emplvl     = max_emplvl;
+	rpt.min_emplvl     = min_emplvl;
 
-	rpt.gross_estabs   = 11;
-	rpt.max_estabs     = 12;
-	rpt.min_estabs     = 13;
+	rpt.gross_estabs   = gross_estabs;
+	rpt.max_estabs     = max_estabs;
+	rpt.min_estabs     = min_estabs;
 
 	// Print the report
 	std::cout << rpt;
