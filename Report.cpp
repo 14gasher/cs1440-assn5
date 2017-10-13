@@ -28,8 +28,6 @@ std::ostream& operator<<(std::ostream& os, const Report& rpt) {
 	printLine(os, "Minimum annual wage", '$', rpt.min_wages);
 	printLine(os, "Maximum annual wage", '$', rpt.max_wages);
 	printLine(os, "Population STDDEV of Annual Wages", '$', rpt.stdev_wages);
-	printLine(os, "Number of unique Annual Wages", rpt.unique_wages);
-	printLine(os, "Number of distinct Annual Wages", rpt.distinct_wages);
 	os << std::endl;
 
 	printLine(os, "Gross annual employment level", rpt.gross_emplvl);

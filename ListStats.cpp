@@ -68,13 +68,45 @@ float stdev_annual_wages(Employment *emp) {
 
 /* TODO: implement this function
 int unique_annual_wages(Employment *emp) {
+}
+*/
+/*
+unsigned int distinct_annual_wages(Employment *emp){
     
 }
 */
+unsigned total_annual_emplvl(Employment *emp) {
+
+}
+
 
 
 
 /* TODO: implement this function
-int distinct_annual_wages(Employment *emp) {
+unsigned max_annual_emplvl(Employment *emp) {
+}
+*/
+
+
+/* TODO: implement this function
+unsigned min_annual_emplvl(Employment *emp) {
+}
+*/
+
+
+/* TODO: implement this function
+unsigned total_annual_estabs(Employment *emp) {
+}
+*/
+
+
+/* TODO: implement this function
+unsigned max_annual_estabs(Employment *emp) {
+}
+*/
+
+
+/* TODO: implement this function
+unsigned min_annual_estabs(Employment *emp) {
 }
 */
