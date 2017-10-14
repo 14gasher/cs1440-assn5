@@ -71,8 +71,8 @@ int main(void) {
 	rpt.min_wages      = min_annual_wages(list);
 	rpt.max_wages      = max_annual_wages(list);
 	rpt.stdev_wages    = stdev_annual_wages(list);
-	rpt.unique_wages   = 6;
-	rpt.distinct_wages = 7;
+	rpt.unique_wages   = unique_wages(list);
+	rpt.distinct_wages = distinct_wages(list);
 
 	rpt.gross_emplvl   = gross_emplvl;
 	rpt.max_emplvl     = max_emplvl;
@@ -84,4 +84,5 @@ int main(void) {
 
 	// Print the report
 	std::cout << rpt;
+	
 }

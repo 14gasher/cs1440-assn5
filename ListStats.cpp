@@ -2,6 +2,9 @@
 #include "List.hpp"
 #include "math.h"
 
+#include <iostream>
+
+
 // TODO: implement this function - clear
 unsigned long total_annual_wages(Employment *emp) {
     auto l = list_length(emp);
@@ -64,4 +67,52 @@ float stdev_annual_wages(Employment *emp) {
     return static_cast<float>(pow(internalSum / count, 0.5));
 }
 
+// Unique Count
+unsigned int unique_wages(Employment *emp){
+    auto vec = generateHistogram(emp);
+    int uniqueCount = 0;
+    for(unsigned int i = 0; i < vec.size(); i++){
+        if(vec[i][1] == 1){
+            uniqueCount++;
+        }
+    }
+    
+    return uniqueCount;
+}
 
+
+// Distinct Wages
+unsigned int distinct_wages(Employment *emp){
+    return generateHistogram(emp).size();
+}
+
+
+
+std::vector< std::vector<unsigned long> > generateHistogram(Employment *emp){
+    std::vector<std::vector<unsigned long>> vec = {};
+
+    auto count = list_length(emp);
+    auto current = emp;
+    
+    for(int i = 0; i < count; i++){
+        
+        auto currentWage = current->total_annual_wages;
+        bool found = false;
+        
+        for(unsigned int j = 0; j < vec.size(); j++){
+            if(vec[j][0] == currentWage){
+                found = true;
+                vec[j][1]++;
+            }
+        }
+        
+        if(!found){
+            std::vector<unsigned long> newNumber = {currentWage, 1};
+            vec.push_back(newNumber);
+        }
+        
+        current = current->next;
+    }
+    
+    return vec;
+}

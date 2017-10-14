@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include "Employment.hpp"
 
 /* implement these functions */
@@ -11,18 +12,9 @@ unsigned long max_annual_wages(Employment *emp);
 
 float stdev_annual_wages(Employment *emp);
 
-/*
+unsigned int unique_wages(Employment *emp);
 
-unsigned total_annual_emplvl(Employment *emp);
+unsigned int distinct_wages(Employment *emp);
 
-unsigned max_annual_emplvl(Employment *emp);
+std::vector< std::vector<unsigned long> > generateHistogram(Employment *emp);
 
-unsigned min_annual_emplvl(Employment *emp);
-
-unsigned total_annual_estabs(Employment *emp);
-
-unsigned max_annual_estabs(Employment *emp);
-
-unsigned min_annual_estabs(Employment *emp);
-
-*/
