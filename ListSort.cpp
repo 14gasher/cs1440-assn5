@@ -83,6 +83,19 @@ Employment *listsort(Employment *list, int (*compar)(const void*, const void*)) 
 }
 
 
+/* 
+ *       breaks ties with the FIPS area code
+ */
+static int cmp_area_area_fips(const void *l, const void *r) {
+	if (((Employment*)l)->area_fips < ((Employment*)r)->area_fips)
+		return -1;
+	else if (((Employment*)l)->area_fips > ((Employment*)r)->area_fips)
+		return 1;
+		
+	return 0;
+}
+
+
 
 /* A comparator to sort on annual average # of establishments,
  *       breaking ties with the FIPS area code
@@ -147,14 +160,4 @@ Employment* listsort_employment_by_total_annual_wages(Employment *list) {
 
 
 
-/* 
- *       breaks ties with the FIPS area code
- */
-static int cmp_area_area_fips(const void *l, const void *r) {
-	if (((Area*)l)->area_fips < ((Area*)r)->area_fips)
-		return -1;
-	else if (((Area*)l)->area_fips > ((Area*)r)->area_fips)
-		return 1;
-	else
-		return 0;
-}
+
