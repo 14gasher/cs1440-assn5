@@ -11,4 +11,6 @@ void print_every_empl(Employment *emp);
 
 int list_length(Employment *emp);
 
-void append_lists(Employment* head, Employment* tail);
+void append_lists(Employment* list1, Employment* list2);
+
+void cleanup_list(Employment* list);

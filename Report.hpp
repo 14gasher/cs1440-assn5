@@ -18,11 +18,14 @@ class Report {
 		unsigned      gross_emplvl;
 		unsigned      max_emplvl;
 		unsigned      min_emplvl;
+		int           unique_emplvl;
+		int           distinct_emplvl;
 
 		unsigned      gross_estabs;
 		unsigned      max_estabs;
 		unsigned      min_estabs;
-
+		int           unique_estabs;
+		int           distinct_estabs;
 
 		Report() {};
 		~Report() { };

@@ -32,7 +32,7 @@
     // "printf \"\\e[1;32mfile='$file'\\e[0m\n\"",
     // "printf \"\\e[1;32mfile_path='$file_path'\\e[0m\n\"",
     "if [ \"$debug\" == true ]; then ",
-    "    stdbuf -o 0 -e 0 node $HOME/.c9/bin/c9gdbshim.js $file_path/main",
+    "    node $HOME/.c9/bin/c9gdbshim.js $file_path/main",
     "else",
     "    stdbuf -o 0 -e 0 $file_path/main $args",
     "fi"

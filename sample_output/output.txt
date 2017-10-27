@@ -1,0 +1,26 @@
+[============]
+[Final Report]
+[============]
+
+Statistics over all industries in 2016:
+=======================================
+Count of FIPS areas in report         3271
+Gross annual wages                    $7633223106028
+Minimum annual wage                   $2370739
+Maximum annual wage                   $274236493774
+Population STDDEV of Annual Wages     $10433293312
+Number of unique Annual Wages         3271
+Number of distinct Annual Wages       3271
+
+Gross annual employment level         142801173
+Maximum annual employment level       4344132
+Minimum annual employment level       74
+Number of unique employment levels    2919
+Number of distinct employment levels  3089
+
+Gross number of establishments        9766382
+Maximum number of establishments      465340
+Minimum number of establishments      12
+Number of unique # of estabs          1225
+Number of distinct # of estabs        1889
+
