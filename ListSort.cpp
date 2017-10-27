@@ -84,42 +84,77 @@ Employment *listsort(Employment *list, int (*compar)(const void*, const void*)) 
 
 
 
-/* You must implement comparators to use with listsort() which implement stable
- * sorts which fall-back to the FIPS area code as a secondary key to break ties.
- *
- * Hint: The signature of comparators used with listsort() are identical to the
- * comparators used with the standard qsort() function
- */
-
-
-
-/* TODO: write a comparator to sort on annual average # of establishments,
+/* A comparator to sort on annual average # of establishments,
  *       breaking ties with the FIPS area code
  */
+ static int cmp_employment_avg_estabs(const void *l, const void *r){
+	if(((Employment*)l)->annual_avg_estabs < ((Employment*)r)->annual_avg_estabs )
+		return -1;
+	else if(((Employment*)l)->annual_avg_estabs > ((Employment*)r)->annual_avg_estabs )
+		return 1;
+	else
+		return cmp_area_area_fips(l, r);
+	
+}
+ 
 
-/* TODO: implement this function
+ 
 Employment* listsort_employment_by_annual_avg_estabs(Employment *list) {
+	return listsort(list, cmp_employment_avg_estabs);
 }
-*/
 
 
 
-/* TODO: write a comparator to sort on annual average employment level,
+/* A comparator to sort on annual average employment level,
  *       breaking ties with the FIPS area code
  */
+ static int cmp_employment_avg_emplvl(const void *l, const void *r){
+	if(((Employment*)l)->annual_avg_emplvl < ((Employment*)r)->annual_avg_emplvl )
+		return -1;
+	else if(((Employment*)l)->annual_avg_emplvl > ((Employment*)r)->annual_avg_emplvl )
+		return 1;
+	else
+		return cmp_area_area_fips(l, r);
+	
+}
 
-/* TODO: implement this function
+
 Employment* listsort_employment_by_annual_avg_emplvl(Employment *list) {
+	return listsort(list, cmp_employment_avg_emplvl);
 }
-*/
 
 
 
-/* TODO: write a comparator to sort on total annual wages,
+
+/* A comparator to sort on total annual wages,
  *       breaking ties with the FIPS area code
  */
-
-/* TODO: implement this function
-Employment* listsort_employment_by_total_annual_wages(Employment *list) {
+ static int cmp_employment_total_annual_wages(const void *l, const void *r){
+	if(((Employment*)l)->total_annual_wages < ((Employment*)r)->total_annual_wages )
+		return -1;
+	else if(((Employment*)l)->total_annual_wages > ((Employment*)r)->total_annual_wages )
+		return 1;
+	else
+		return cmp_area_area_fips(l, r);
+	
 }
-*/
+
+
+Employment* listsort_employment_by_total_annual_wages(Employment *list) {
+	return listsort(list, cmp_employment_total_annual_wages);
+}
+
+
+
+
+/* 
+ *       breaks ties with the FIPS area code
+ */
+static int cmp_area_area_fips(const void *l, const void *r) {
+	if (((Area*)l)->area_fips < ((Area*)r)->area_fips)
+		return -1;
+	else if (((Area*)l)->area_fips > ((Area*)r)->area_fips)
+		return 1;
+	else
+		return 0;
+}
