@@ -7,27 +7,31 @@
 Employment* build_empl_list(std::string filename) {
     Employment* head;
     Employment* current;
-    std::ifstream file;
-    file.open(filename);
-    std::string ignoreMe;
-    file >> ignoreMe >> ignoreMe >> ignoreMe >> ignoreMe;
-    std::string area_fips;
-    unsigned long annual_avg_estabs, annual_avg_emplvl, total_annual_wages;
-    
-    // Initialize first part
-    file >> area_fips >> annual_avg_estabs >> annual_avg_emplvl >> total_annual_wages;
-    current = new Employment(area_fips, annual_avg_estabs, annual_avg_emplvl, total_annual_wages);
-    
-    // Save the head of the list
-    head = current;
-    
-    while(file >> area_fips >> annual_avg_estabs >> annual_avg_emplvl >> total_annual_wages){
-        current->next = new Employment(area_fips, annual_avg_estabs, annual_avg_emplvl, total_annual_wages);
-        current = current->next;
+    std::ifstream file(filename);
+    if(!file){
+        return nullptr;
+    } else {
+        std::string ignoreMe;
+        file >> ignoreMe >> ignoreMe >> ignoreMe >> ignoreMe;
+        std::string area_fips;
+        unsigned long annual_avg_estabs, annual_avg_emplvl, total_annual_wages;
         
+        // Initialize first part
+        file >> area_fips >> annual_avg_estabs >> annual_avg_emplvl >> total_annual_wages;
+        current = new Employment(area_fips, annual_avg_estabs, annual_avg_emplvl, total_annual_wages);
+        
+        // Save the head of the list
+        head = current;
+        
+        while(file >> area_fips >> annual_avg_estabs >> annual_avg_emplvl >> total_annual_wages){
+            current->next = new Employment(area_fips, annual_avg_estabs, annual_avg_emplvl, total_annual_wages);
+            current = current->next;
+            
+        }
+        current = nullptr;
+        return head;
     }
-    current = nullptr;
-    return head;
+    
 }
 
 
