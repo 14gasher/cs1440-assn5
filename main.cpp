@@ -216,6 +216,8 @@ int main(void) {
 	// Print the report
 	std::cout << rpt;
 	
+	cleanup_list(list);
+	
 	
 
 

@@ -68,3 +68,15 @@ void append_lists(Employment* head, Employment* tail) {
     tail = nullptr;
 }
 
+void cleanup_list(Employment* list){
+    auto cool = list->next;
+    auto prev = list;
+    while(cool != NULL){
+        delete prev;
+        prev = cool;
+        cool = cool->next;
+    }
+    delete prev;
+    
+}
+
